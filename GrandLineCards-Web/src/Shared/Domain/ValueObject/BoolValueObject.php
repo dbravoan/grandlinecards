@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+namespace GrandLineCards\Shared\Domain\ValueObject;
+
+abstract class BoolValueObject
+{
+    public function __construct(protected bool $value) {}
+    public function value(): bool { return $this->value; }
+    public function isTrue(): bool { return $this->value(); }
+    public function isFalse(): bool { return !$this->value(); }
+}

@@ -1,0 +1,385 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method App\\Console\\Commands\\ScanRoutesCommand\:\:get\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Console/Commands/ScanRoutesCommand.php
+
+		-
+			message: '#^Parameter \#1 \$value of method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\Card\>\:\:limit\(\) expects int, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/TranslateCardsCommand.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Console/Commands/TranslateCardsCommand.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Console/Commands/TranslateMissingCommand.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/Api/SearchController.php
+
+		-
+			message: '#^Anonymous function has an unused use \$query\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: app/Http/Controllers/Api/SearchController.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Database\\Eloquent\\Collection\<int,App\\Models\\Card\>\:\:map\(\) contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
+			count: 1
+			path: app/Http/Controllers/Api/SearchController.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Api/SearchController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 2
+			path: app/Http/Controllers/Api/SearchController.php
+
+		-
+			message: '#^Property App\\Http\\Controllers\\Api\\V1\\DeckController\:\:\$deckRepository is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: app/Http/Controllers/Api/V1/DeckController.php
+
+		-
+			message: '#^Relation ''user'' is not found in App\\Models\\EventSuggestion model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Admin/EventSuggestionController.php
+
+		-
+			message: '#^Relation ''prices'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Admin/InventoryController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\OrderItem\:\:\$order\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/Web/Admin/LogisticsController.php
+
+		-
+			message: '#^Relation ''items'' is not found in App\\Models\\VaultShipment model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Admin/LogisticsController.php
+
+		-
+			message: '#^Relation ''order'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Admin/LogisticsController.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Post model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Admin/PostController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Card\:\:\$translations\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Controllers/Web/Admin/TranslateController.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Web/Admin/TranslateController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$banned_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Web/Admin/UserController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Card\:\:\$translations\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\CollectionItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\MarketListing model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\PricePoint model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''user'' is not found in App\\Models\\MarketListing model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/CatalogController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\CollectionItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/CollectionController.php
+
+		-
+			message: '#^Relation ''items'' is not found in App\\Models\\CustomerShipment model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/CustomerShipmentController.php
+
+		-
+			message: '#^Relation ''marketListing'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/CustomerShipmentController.php
+
+		-
+			message: '#^Relation ''order'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/CustomerShipmentController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\MarketListing model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Web/Front/Profile/SalesController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/SalesController.php
+
+		-
+			message: '#^Relation ''marketListing'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/SalesController.php
+
+		-
+			message: '#^Relation ''order'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/SalesController.php
+
+		-
+			message: '#^Relation ''items'' is not found in App\\Models\\VaultShipment model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/VaultShipmentController.php
+
+		-
+			message: '#^Relation ''marketListing'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Web/Front/Profile/VaultShipmentController.php
+
+		-
+			message: '#^Relation ''order'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/Profile/VaultShipmentController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MarketListing\:\:\$listing_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MarketListing\:\:\$min_price\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Array has 2 duplicate keys with value ''singles'' \(''singles'', ''singles''\)\.$#'
+			identifier: array.duplicateKey
+			count: 1
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Parameter \#1 \$collection of method Illuminate\\Pagination\\AbstractPaginator\<int,App\\Models\\MarketListing\>\:\:setCollection\(\) expects Illuminate\\Support\\Collection\<int, App\\Models\\MarketListing\>, Illuminate\\Support\\Collection\<int, array\{id\: string, name\: mixed, description\: string, min_price\: mixed, listing_count\: mixed, image_url\: mixed, category\: string\}\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Relation ''card'' is not found in App\\Models\\MarketListing model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Web/Front/ShopController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Relations\\MorphToMany\:\:published\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/Web/Front/TagController.php
+
+		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Models\\User does not\.$#'
+			identifier: class.missingImplements
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Providers/IngestionServiceProvider.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CustomerShipment\:\:\$items\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CustomerShipment\:\:\$user\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\VaultShipment\:\:\$carrier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\VaultShipment\:\:\$items\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\VaultShipment\:\:\$user\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/Logistics/LabelService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MarketListing\:\:\$auction_end_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Marketplace/MarketplaceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MarketListing\:\:\$highestBid\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Marketplace/MarketplaceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MarketListing\:\:\$is_auction\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Marketplace/MarketplaceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Order\:\:\$items\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Marketplace/MarketplaceService.php
+
+		-
+			message: '#^Relation ''order'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Services/Marketplace/MarketplaceService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Card\:\:\$translations\.$#'
+			identifier: property.notFound
+			count: 4
+			path: app/Services/Meta/MetaService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Deck\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Meta/MetaService.php
+
+		-
+			message: '#^Relation ''translations'' is not found in App\\Models\\Card model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Services/Meta/MetaService.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Services/OpenAITranslator.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Order\:\:\$items\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Payment/PaymentService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Order\:\:\$user\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Payment/PaymentService.php
+
+		-
+			message: '#^Parameter \#1 \$params of static method Stripe\\Checkout\\Session\:\:create\(\) expects array\{adaptive_pricing\?\: array\{enabled\?\: bool\}, after_expiration\?\: array\{recovery\?\: array\{allow_promotion_codes\?\: bool, enabled\: bool\}\}, allow_promotion_codes\?\: bool, automatic_tax\?\: array\{enabled\: bool, liability\?\: array\{account\?\: string, type\: string\}\}, billing_address_collection\?\: string, branding_settings\?\: array\{background_color\?\: string\|null, border_style\?\: string\|null, button_color\?\: string\|null, display_name\?\: string, font_family\?\: string\|null, icon\?\: array\{file\?\: string, type\: string, url\?\: string\}, logo\?\: array\{file\?\: string, type\: string, url\?\: string\}\}, cancel_url\?\: string, client_reference_id\?\: string, \.\.\.\}\|null, array\{payment_method_types\: array\{''card''\}, line_items\: list\<array\{price_data\: array\{currency\: ''eur'', product_data\: array\{name\: non\-falsy\-string\}, unit_amount\: int\}, quantity\: mixed\}\>, mode\: ''payment'', success_url\: non\-falsy\-string, cancel_url\: string, metadata\: array\{order_id\: int, user_id\: int\<0, max\>\}, customer_email\: mixed\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/Payment/PaymentService.php
+
+		-
+			message: '#^Constant App\\Services\\Translation\\AutoTranslator\:\:ATTRIBUTES is unused\.$#'
+			identifier: classConstant.unused
+			count: 1
+			path: app/Services/Translation/AutoTranslator.php

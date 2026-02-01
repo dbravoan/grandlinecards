@@ -1,0 +1,71 @@
+name: Deploy Web App
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "GrandLineCards-Web/**"
+      - ".github/workflows/deploy-web.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -p ${{ secrets.VPS_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        run: |
+          ssh -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
+            set -e
+            echo "🚀 Starting Deployment..."
+            
+            # Navigate to Project Root (Monorepo)
+            cd ${{ secrets.VPS_DIR }}
+            
+            # Pull latest changes
+            echo "📥 Pulling latest changes..."
+            git pull origin main
+            
+            # Enter Web Directory
+            cd GrandLineCards-Web
+            
+            # --- Laravel Build Steps ---
+            
+            # 1. Install PHP Dependencies
+            echo "📦 Installing Composer dependencies..."
+            composer install --no-dev --optimize-autoloader --no-interaction
+            
+            # 2. Run Migrations
+            echo "🗄️ Running Migrations..."
+            php artisan migrate --force
+            
+            # 3. Optimize Caches
+            echo "⚡ Optimizing Configuration & Routes..."
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            
+            # 4. Storage Link (Ensure it exists)
+            php artisan storage:link
+            
+            # 5. Build Frontend (if node is available on server, otherwise consider building in CI and creating artifact)
+            # Assuming Node.js is installed on VPS for this pipeline
+            echo "🎨 Building Frontend..."
+            npm install --production
+            npm run build
+            
+            # 6. Restart Queue (if using Supervisor)
+            # echo "🔄 Restarting Queues..."
+            # php artisan queue:restart
+            
+            echo "✅ Deployment Complete!"
+          EOF

@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Grand Line Cards API
+  description: |
+    API Reference for the Grand Line Cards platform.
+    Features:
+    - Card Catalog & Translations
+    - Deck Building
+    - Market/Pricing Data
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@grandlinecards.com
+servers:
+  - url: http://localhost/api/v1
+    description: Local Development (Sail)
+  - url: https://api.grandlinecards.com/v1
+    description: Production
+
+paths:
+  /cards:
+    get:
+      summary: Search Cards
+      description: Search for cards by name, code, color, or attributes.
+      tags: [Cards]
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Text search query (e.g. "Luffy")
+        - name: color
+          in: query
+          schema:
+            type: string
+            enum: [Red, Green, Blue, Purple, Black, Yellow, Multi]
+        - name: cost
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of matching cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+
+  /cards/{cardId}:
+    get:
+      summary: Get Card Details
+      description: Retrieve detailed information for a specific card by its ID (e.g. OP01-001).
+      tags: [Cards]
+      parameters:
+        - name: cardId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: OP01-001
+      responses:
+        '200':
+          description: Card details found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+        '404':
+          description: Card not found
+
+components:
+  schemas:
+    Card:
+      type: object
+      properties:
+        id:
+          type: string
+          example: OP01-001
+        name:
+          type: string
+          example: Monkey D. Luffy
+        translated_name:
+          type: string
+          example: Monkey D. Luffy (ES)
+        type:
+          type: string
+          enum: [Leader, Character, Event, Stage]
+        color:
+          type: string
+          example: Red
+        cost:
+          type: integer
+          example: 5
+        power:
+          type: integer
+          example: 6000
+        counter:
+          type: integer
+          example: 1000
+        attributes:
+          type: array
+          items:
+            type: string
+          example: ["Supernovas", "Straw Hat Crew"]
+        rarity:
+          type: string
+          example: SR
+        image_url:
+          type: string
+          format: uri

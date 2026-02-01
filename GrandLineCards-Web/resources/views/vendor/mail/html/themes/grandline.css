@@ -1,0 +1,233 @@
+/* Base Layout */
+body {
+    background-color: #1a202c; /* grand-900 */
+    color: #e2e8f0; /* grand-bone */
+}
+
+.wrapper {
+    background-color: #1a202c; /* grand-900 */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+/* Header */
+.header {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.header a {
+    color: #d4af37; /* grand-gold */
+    font-size: 19px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Logo */
+.logo {
+    height: 75px;
+    max-height: 75px;
+    width: auto;
+}
+
+/* Body */
+.body {
+    background-color: #1a202c; /* grand-900 */
+    border-bottom: 1px solid #2d3748; /* grand-800 */
+    border-top: 1px solid #2d3748; /* grand-800 */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+.inner-body {
+    background-color: #1a202c; /* grand-900 */
+    margin: 0 auto;
+    padding: 0;
+    width: 570px;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+/* Subcopy */
+.subcopy {
+    border-top: 1px solid #2d3748; /* grand-800 */
+    margin-top: 25px;
+    padding-top: 25px;
+}
+
+.subcopy p {
+    font-size: 12px;
+}
+
+/* Footer */
+.footer {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 570px;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+.footer p {
+    color: #718096; /* grand-500 */
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer a {
+    color: #718096; /* grand-500 */
+    text-decoration: underline;
+}
+
+/* Tables */
+.table table {
+    margin: 30px auto;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+.table th {
+    border-bottom: 1px solid #4a5568; /* grand-700 */
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.table td {
+    color: #cbd5e0; /* grand-300 */
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Content */
+h1 {
+    color: #d4af37; /* grand-gold */
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+h2 {
+    color: #d4af37; /* grand-gold */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+h3 {
+    color: #d4af37; /* grand-gold */
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+p {
+    color: #e2e8f0; /* grand-bone */
+    font-size: 16px;
+    line-height: 1.5em;
+    margin-top: 0;
+    text-align: left;
+}
+
+p.sub {
+    font-size: 12px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Buttons */
+.action {
+    margin: 30px auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+}
+
+.button {
+    border-radius: 4px;
+    color: #1a202c; /* grand-900 text on button */
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 18px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button-primary {
+    background-color: #d4af37; /* grand-gold */
+    border-top: 10px solid #d4af37;
+    border-right: 18px solid #d4af37;
+    border-bottom: 10px solid #d4af37;
+    border-left: 18px solid #d4af37;
+}
+
+.button-success {
+    background-color: #48bb78;
+    border-top: 10px solid #48bb78;
+    border-right: 18px solid #48bb78;
+    border-bottom: 10px solid #48bb78;
+    border-left: 18px solid #48bb78;
+}
+
+.button-error {
+    background-color: #e53e3e;
+    border-top: 10px solid #e53e3e;
+    border-right: 18px solid #e53e3e;
+    border-bottom: 10px solid #e53e3e;
+    border-left: 18px solid #e53e3e;
+}
+
+/* Panels */
+.panel {
+    border-left: #d4af37 solid 4px; /* grand-gold border */
+    margin: 21px 0;
+    background-color: #2d3748; /* grand-800 */
+}
+
+.panel-content {
+    background-color: #2d3748; /* grand-800 */
+    color: #cbd5e0;
+    padding: 16px;
+}
+
+.panel-item {
+    padding: 0;
+}
+
+.panel-item p:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Utilities */
+.break-all {
+    word-break: break-all;
+}

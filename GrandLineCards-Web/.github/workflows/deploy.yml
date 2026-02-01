@@ -1,0 +1,55 @@
+name: Deploy Grand Line Cards
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, iconv, json, mbstring, pdo
+      
+    - name: Install Composer Dependencies
+      run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+    - name: Install NPM Dependencies & Build
+      run: |
+        npm ci
+        npm run build
+
+    - name: Prepare Deployment Artifact
+      run: |
+        tar -czf release.tar.gz .
+
+    - name: Deploy via SSH
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "release.tar.gz"
+        target: "/var/www/grand-line-cards"
+
+    - name: Execute Remote Commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /var/www/grand-line-cards
+          tar -xzf release.tar.gz
+          rm release.tar.gz
+          php artisan migrate --force
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          sudo service php8.3-fpm reload

@@ -1,0 +1,7 @@
+{
+  "name": "GrandLineCards-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
