@@ -24,9 +24,13 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -o ForwardAgent=yes -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
             set -e
             echo "🚀 Starting Deployment..."
+
+            # Ensure .ssh dir exists and trust GitHub
+            mkdir -p ~/.ssh
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null || true
             
             # Navigate to Project Root (Monorepo)
             cd ${{ secrets.VPS_DIR }}
