@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+.vscode
+*.log
+# grand_line_cards_dump.sql (Included for initial deploy)
+.env
+.clover/
+coverage.xml
+phpunit.xml
