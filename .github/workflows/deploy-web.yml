@@ -29,8 +29,15 @@ jobs:
           npm ci
           npm run build
           
-          # Archive for Deployment
-          tar -czf release.tar.gz .
+          # Archive for Deployment (Exclude dev files to fix "file changed" error and reduce size)
+          tar -czf release.tar.gz \
+            --exclude=release.tar.gz \
+            --exclude=.git \
+            --exclude=node_modules \
+            --exclude=tests \
+            --exclude=storage/framework/cache \
+            --exclude=storage/framework/views \
+            . || [[ $? -eq 1 ]] # Allow exit code 1 (warnings) just in case
 
       - name: Upload Artifact to VPS
         uses: appleboy/scp-action@master
