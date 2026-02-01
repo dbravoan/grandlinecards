@@ -63,3 +63,23 @@ To update the application:
 1.  `git pull origin main`
 2.  `./vendor/bin/sail up -d --build`
 3.  `./vendor/bin/sail artisan migrate --force`
+
+## 5. Troubleshooting
+
+### 🛑 Error: `fatal: not a git repository`
+If the GitHub Action fails with this message during `git pull`, it means the server directory is empty.
+**Fix**: You must manually clone the repo **once** on the server:
+
+```bash
+# SSH into your VPS
+ssh -p <PORT> <USER>@<HOST>
+
+# Go to the parent directory of VPS_DIR
+cd /var/www
+
+# Clone the repo (Replace with your actual repo URL)
+git clone git@github.com:dbravoan/grandlinecards.git grandlinecards
+
+# Result: /var/www/grandlinecards now exists and is a git repo.
+# The next deployment will succeed.
+```

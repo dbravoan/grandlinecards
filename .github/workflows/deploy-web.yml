@@ -31,9 +31,18 @@ jobs:
             # Navigate to Project Root (Monorepo)
             cd ${{ secrets.VPS_DIR }}
             
-            # Pull latest changes
-            echo "📥 Pulling latest changes..."
-            git pull origin main
+            # Check if git initialized
+            if [ -d ".git" ]; then
+                echo "📥 Pulling latest changes..."
+                git pull origin main
+            else
+                echo "⚠️ No Git repository found. Initializing..."
+                git init
+                git remote add origin git@github.com:dbravoan/grandlinecards.git
+                git fetch origin
+                git reset --hard origin/main
+                git branch --set-upstream-to=origin/main main
+            fi
             
             # Enter Web Directory
             cd GrandLineCards-Web
